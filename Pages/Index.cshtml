@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+
+<section class="p-6">
+    <h2 class="text-2xl font-semibold">Siste Prosjekter</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        @foreach (var project in Model.LatestProjects)
+        {
+            @await Html.PartialAsync("_ProjectCard", project)
+        }
+    </div>
+</section>public class IndexModel : PageModel
+{
+    public IEnumerable<Project> LatestProjects { get; set; }
+
+    public void OnGet()
+    {
+        // Initialize LatestProjects with some data
+        LatestProjects = new List<Project>
+        {
+            new Project { Name = "Project 1", Description = "This is project 1" },
+            new Project { Name = "Project 2", Description = "This is project 2" },
+            new Project { Name = "Project 3", Description = "This is project 3" }
+        };
+    }
+}
+
+public class Project
+{
+    public string Name { get; set; }
+    public string Description { get; set; }
+}
+<script src="~/js/main.js"></script>
