@@ -23,7 +23,7 @@ This is a personal portfolio project built with ASP.NET Core and Tailwind CSS. T
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/<your-username>/petrine.no.git
+   git clone https://github.com/EPetrineLynghaug/petrine.no.git
 ```
 2.	Install Tailwind CSS dependencies:
 ```bash
