@@ -22,32 +22,34 @@ public class IndexModel : PageModel
 
         try
         {
-            // Ensure URL is formatted correctly
             var response = await client.GetAsync("https://api.github.com/users/EPetrineLynghaug/repos");
 
-            // Check if response was successful
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var repos = JsonSerializer.Deserialize<List<ProjectViewModel>>(responseContent) ?? new List<ProjectViewModel>();
 
-                LatestProjects = repos.Take(3).ToList();
+                // Sort by CreatedAt in descending order and take the latest 3 projects
+                LatestProjects = repos
+                    .OrderByDescending(repo => repo.CreatedAt)
+                    .Take(3)
+                    .ToList();
             }
             else
             {
                 _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode}", response.StatusCode);
-                LatestProjects = new List<ProjectViewModel>(); // Empty list on failure
+                LatestProjects = new List<ProjectViewModel>();
             }
         }
         catch (HttpRequestException ex)
         {
             _logger.LogError(ex, "An error occurred while fetching data from GitHub API.");
-            LatestProjects = new List<ProjectViewModel>(); // Empty list if there's a network error
+            LatestProjects = new List<ProjectViewModel>();
         }
         catch (JsonException ex)
         {
             _logger.LogError(ex, "An error occurred while deserializing the GitHub API response.");
-            LatestProjects = new List<ProjectViewModel>(); // Empty list if deserialization fails
+            LatestProjects = new List<ProjectViewModel>();
         }
     }
 }
