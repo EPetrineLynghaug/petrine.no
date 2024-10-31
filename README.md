@@ -10,10 +10,14 @@ This is a personal portfolio project built with ASP.NET Core and Tailwind CSS. T
 
 ## Features
 
-- **Homepage**: Shows the latest three projects from GitHub.
-- **Projects**: A list of all projects fetched directly from GitHub.
-- **Blog**: A page for writing about the technology used in your projects.
+- **Homepage**: Displays the latest three projects from GitHub.
+- **Projects**: A comprehensive list of all projects fetched directly from GitHub.
+- **Blog**: A dedicated page for writing about the technology used in your projects.
 - **Contact**: A contact page with a form for sending messages.
+
+## Notes
+
+- The API functionality is still in progress and will be updated soon.
 
 ## Running the Project Locally
 
@@ -29,9 +33,11 @@ This is a personal portfolio project built with ASP.NET Core and Tailwind CSS. T
 ```bash 
   npm install
   ```
+4.	Build the Tailwind CSS:
 ```bash
 npm run build:css
 ```
+5.	Start the application with hot-reloading:
 ```bash 
-dotnet run
+dotnet watch run
 ```

@@ -1,32 +1,53 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using petrine.no.Models;
 
 public class IndexModel : PageModel
 {
     public List<ProjectViewModel> LatestProjects { get; set; } = new List<ProjectViewModel>();
+    private readonly ILogger<IndexModel> _logger;
+
+    public IndexModel(ILogger<IndexModel> logger)
+    {
+        _logger = logger;
+    }
 
     public async Task OnGetAsync()
     {
         using var client = new HttpClient();
-        var response = await client.GetStringAsync("https://api.github.com/users/yourusername/repos");
-        var repos = JsonSerializer.Deserialize<List<GitHubRepo>>(response);
-#pragma warning disable CS8604 // Possible null reference argument.
-        LatestProjects = repos.Take(3).Select(repo => new ProjectViewModel
-        {
-            Name = repo.Name,
-            Description = repo.Description,
-            Url = repo.HtmlUrl
-        }).ToList();
-#pragma warning restore CS8604 // Possible null reference argument.
-    }
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MyPortfolioApp", "1.0"));
 
-    private class GitHubRepo
-    {
-        public required string Name { get; set; }
-        public required string Description { get; set; }
-        public required string HtmlUrl { get; set; }
+        try
+        {
+            // Ensure URL is formatted correctly
+            var response = await client.GetAsync("https://api.github.com/users/EPetrineLynghaug/repos");
+
+            // Check if response was successful
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var repos = JsonSerializer.Deserialize<List<ProjectViewModel>>(responseContent) ?? new List<ProjectViewModel>();
+
+                LatestProjects = repos.Take(3).ToList();
+            }
+            else
+            {
+                _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode}", response.StatusCode);
+                LatestProjects = new List<ProjectViewModel>(); // Empty list on failure
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.LogError(ex, "An error occurred while fetching data from GitHub API.");
+            LatestProjects = new List<ProjectViewModel>(); // Empty list if there's a network error
+        }
+        catch (JsonException ex)
+        {
+            _logger.LogError(ex, "An error occurred while deserializing the GitHub API response.");
+            LatestProjects = new List<ProjectViewModel>(); // Empty list if deserialization fails
+        }
     }
 }

@@ -6,25 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Petrine.no</title>
 
-    <!-- Legger til Tailwind CSS via CDN for enkel testing -->
+    <!-- Adding Tailwind CSS via CDN for easy testing -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Optional: Include a CSS file for custom styles -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
 <body>
     <header>
-        <!-- Din navigasjon og header innhold -->
+        <!-- Your navigation and header content -->
+        <nav class="bg-gray-800 p-4">
+            <ul class="flex space-x-4">
+                <li><a href="/" class="text-white">Home</a></li>
+                <li><a href="/About" class="text-white">About</a></li>
+                <li><a href="/Projects" class="text-white">Projects</a></li>
+                <li><a href="/Contact" class="text-white">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <main class="p-6">
         @RenderBody()
     </main>
 
-    <footer>
-        <!-- Footer-innhold -->
+    <footer class="bg-gray-800 p-4 text-white">
+        <!-- Footer content -->
+        <p>&copy; 2024 Petrine.no. All rights reserved.</p>
     </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 
 </html>
-</footer>
-
-<script src="~/js/site.js" asp-append-version="true"></script>
