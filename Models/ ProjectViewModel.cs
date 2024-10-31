@@ -14,6 +14,8 @@ namespace petrine.no.Models
         public required string Url { get; set; }
 
         [JsonPropertyName("created_at")]
-        public DateTime CreatedAt { get; set; } // New property for creation date
+        public DateTime CreatedAt { get; set; }
+      
     }
+    
 }
