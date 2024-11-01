@@ -15,7 +15,14 @@ namespace petrine.no.Models
 
         [JsonPropertyName("created_at")]
         public DateTime CreatedAt { get; set; }
-      
+
+        [JsonPropertyName("updated_at")]
+        public DateTime LastUpdated { get; set; }
+
+        // New properties to hold language details and a short summary
+        public string Summary { get; set; } = string.Empty;
+
+        // Collection of languages associated with the project, populated separately if needed
+        public Dictionary<string, int> Languages { get; set; } = new();
     }
-    
 }
