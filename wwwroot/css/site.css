@@ -3,19 +3,6 @@
 @tailwind utilities;
 
 
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
 
 html {
   position: relative;
@@ -26,6 +13,38 @@ body {
   margin-bottom: 60px;
 }
 /* Extra button styling */
+card-button {
+  transition: background-color 0.2s;
+}
+
 .card-button {
   transition: background-color 0.2s;
+}
+
+.card-button {
+  transition: background-color 0.2s;
+}
+
+.btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d3748;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.btn-github:hover {
+  background-color: #4a5568;
+}
+
+
+.btn-github svg {
+  width: 20px;
+  height: 20px;
 }
