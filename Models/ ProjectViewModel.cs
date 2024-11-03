@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace petrine.no.Models
@@ -24,5 +26,10 @@ namespace petrine.no.Models
 
         // Collection of languages associated with the project, populated separately if needed
         public Dictionary<string, int> Languages { get; set; } = new();
+
+        // New properties for the Hero section
+        public string HeroTitle { get; set; } = "Welcome to Petrine.no!";
+        public string HeroSubtitle { get; set; } = "Explore our projects and blog.";
+        public string HeroImageUrl { get; set; } = "https://via.placeholder.com/1200x400";
     }
 }

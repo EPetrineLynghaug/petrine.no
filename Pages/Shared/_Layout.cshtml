@@ -6,34 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Petrine.no</title>
 
-    <!-- Adding Tailwind CSS via CDN for easy testing -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Optional: Include a CSS file for custom styles -->
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
 </head>
 
 <body>
-    <header>
-        <!-- Your navigation and header content -->
-        <nav class="bg-gray-800 p-4">
-            <ul class="flex space-x-4">
-                <li><a href="/" class="text-white">Home</a></li>
-                <li><a href="/About" class="text-white">About</a></li>
-                <li><a href="/Projects" class="text-white">Prortfolio</a></li>
-                <li> <a href="/Blog" class="text-white">Blog</a></li>
-                <li><a href="/Contact" class="text-white">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between">
+            <div class="text-white font-bold">Petrine.no</div>
+            <div class="space-x-4">
+                <a href="/" class="text-white hover:text-gray-400">Home</a>
+                <a href="#projects" class="text-white hover:text-gray-400">Projects</a>
+                <a href="#about" class="text-white hover:text-gray-400">About</a>
+                <a href="#contact" class="text-white hover:text-gray-400">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <main class="p-6">
+    <!-- Hero Section Start -->
+    <header class="relative bg-cover bg-center h-96"
+        style="background-image: url('https://via.placeholder.com/1920x600');">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+            <h1 class="text-4xl font-bold">Welcome to Petrine.no!</h1>
+            <p class="text-lg mt-2">Explore our projects and blog.</p>
+            <a href="#main-content" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg">Learn More</a>
+        </div>
+    </header>
+    <!-- Hero Section End -->
+
+    <main id="main-content" class="p-6">
         @RenderBody()
     </main>
 
-    <footer class="bg-gray-800  text-white p-4 fixed bottom-0 w-full">
-        <!-- Footer content -->
+    <footer class="bg-gray-800 text-white p-4 fixed bottom-0 w-full">
         <p>&copy; 2024 Petrine.no. All rights reserved.</p>
     </footer>
 
