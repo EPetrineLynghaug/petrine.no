@@ -1,6 +1,8 @@
-using System.Text.Json;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -11,6 +13,12 @@ namespace petrine.no.Pages
     public class IndexModel : PageModel
     {
         public List<ProjectViewModel> LatestProjects { get; set; } = new List<ProjectViewModel>();
+
+        // Hero section properties
+        public string HeroImageUrl { get; set; } = "https://via.placeholder.com/1920x600";
+        public string HeroTitle { get; set; } = "Welcome to Petrine.no!";
+        public string HeroSubtitle { get; set; } = "Explore our projects and blog.";
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)

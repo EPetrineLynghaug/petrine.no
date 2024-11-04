@@ -1,23 +1,17 @@
 ﻿@page
-@model IndexModel
+@model petrine.no.Pages.IndexModel
 @{
     ViewData["Title"] = "Home";
 }
 
-<section>
-    <h2 class="text-2xl font-semibold">Latest Projects</h2>
 
-    @if (Model.LatestProjects != null && Model.LatestProjects.Any())
-    {
-        <div id="latestProjects" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            @foreach (var project in Model.LatestProjects)
-            {
-                @await Html.PartialAsync("_ProjectCard", project)
-            }
-        </div>
-    }
-    else
-    {
-        <p>No projects available at this time.</p>
-    }
+<!-- Latest Projects section on homepage -->
+<section id="latestProjects" class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Latest Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        @foreach (var project in Model.LatestProjects)
+        {
+            @await Html.PartialAsync("_ProjectCard", project)
+        }
+    </div>
 </section>

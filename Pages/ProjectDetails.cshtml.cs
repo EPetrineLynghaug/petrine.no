@@ -14,7 +14,6 @@ namespace petrine.no.Pages
     {
         private readonly ILogger<ProjectDetailsModel> _logger;
 
-        // Mark Project as nullable to prevent warnings
         public ProjectViewModel? Project { get; private set; }
 
         public ProjectDetailsModel(ILogger<ProjectDetailsModel> logger)
