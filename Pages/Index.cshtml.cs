@@ -1,60 +1,69 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Text.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using petrine.no.Models;
+using petrine.no.ViewModels;
 
-public class IndexModel : PageModel
+namespace petrine.no.Pages
 {
-    public List<ProjectViewModel> LatestProjects { get; set; } = new List<ProjectViewModel>();
-
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
+    public class IndexModel : PageModel
     {
-        _logger = logger;
-    }
+        public List<ProjectViewModel> LatestProjects { get; set; } = new List<ProjectViewModel>();
+        private readonly ILogger<IndexModel> _logger;
 
-    public async Task OnGetAsync()
-    {
-        using var client = new HttpClient();
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MyPortfolioApp", "1.0"));
-
-        try
+        public IndexModel(ILogger<IndexModel> logger)
         {
-            var response = await client.GetAsync("https://api.github.com/users/EPetrineLynghaug/repos");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var repos = JsonSerializer.Deserialize<List<ProjectViewModel>>(responseContent) ?? new List<ProjectViewModel>();
-
-                // Sort by CreatedAt in descending order and take the latest 3 projects
-                LatestProjects = repos
-                    .OrderByDescending(repo => repo.CreatedAt)
-                    .Take(3)
-                    .ToList();
-            }
-            else
-            {
-                _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode}", response.StatusCode);
-                LatestProjects = new List<ProjectViewModel>();
-            }
+            _logger = logger;
         }
-        catch (HttpRequestException ex)
+
+        public async Task OnGetAsync()
         {
-            _logger.LogError(ex, "An error occurred while fetching data from GitHub API.");
-            LatestProjects = new List<ProjectViewModel>();
+            // Fetch projects from GitHub
+            await FetchProjectsAsync();
         }
-        catch (JsonException ex)
+
+        private async Task FetchProjectsAsync()
         {
-            _logger.LogError(ex, "An error occurred while deserializing the GitHub API response.");
-            LatestProjects = new List<ProjectViewModel>();
+            var specificRepos = new List<string> { "RettVest", "Repo2", "Repo3" }; // Replace with actual repo names
+
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MyApp", "1.0"));
+
+            var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
+
+            // Add the token to the Authorization header if it's available
+            if (!string.IsNullOrEmpty(token))
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            foreach (var repo in specificRepos)
+            {
+                try
+                {
+                    var response = await client.GetAsync($"https://api.github.com/repos/EPetrineLynghaug/{repo}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var project = JsonSerializer.Deserialize<ProjectViewModel>(responseContent);
+
+                        if (project != null)
+                        {
+                            LatestProjects.Add(project);
+                        }
+                    }
+                    else
+                    {
+                        _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode}", response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "An error occurred while fetching data from GitHub API for repo {Repo}.", repo);
+                }
+            }
         }
     }
 }

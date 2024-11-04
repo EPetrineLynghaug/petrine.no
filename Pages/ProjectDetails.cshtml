@@ -1,0 +1,11 @@
+@page "{RettVest}"
+@model ProjectDetailsModel
+@{
+    ViewData["Title"] = Model.Project?.Name ?? "Project Details";
+}
+
+<section class="p-6">
+    <h1 class="text-3xl font-bold">@Model.Project?.Name</h1>
+    <p class="text-gray-600">@Model.Project?.Description</p>
+    <a href="@Model.Project?.Url" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+</section>

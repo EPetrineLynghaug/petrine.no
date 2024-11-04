@@ -11,37 +11,42 @@
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
 </head>
 
-<body>
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between">
-            <div class="text-white font-bold">Petrine.no</div>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 p-4" aria-label="Main Navigation">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white font-bold text-lg">Petrine.no</a>
             <div class="space-x-4">
                 <a href="/" class="text-white hover:text-gray-400">Home</a>
-                <a href="#projects" class="text-white hover:text-gray-400">Projects</a>
-                <a href="#about" class="text-white hover:text-gray-400">About</a>
-                <a href="#contact" class="text-white hover:text-gray-400">Contact</a>
+                <a href="/portfolio" class="text-white hover:text-gray-400">Portfolio</a>
+                <a href="/blog" class="text-white hover:text-gray-400">Blog</a>
+                <a href="/about" class="text-white hover:text-gray-400">About</a>
+                <a href="/contact" class="text-white hover:text-gray-400">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section Start -->
+    <!-- Hero Section -->
     <header class="relative bg-cover bg-center h-96"
-        style="background-image: url('https://via.placeholder.com/1920x600');">
+        style="background-image: url('@(ViewData["HeroImageUrl"] ?? "https://via.placeholder.com/1920x600")');">
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-            <h1 class="text-4xl font-bold">Welcome to Petrine.no!</h1>
-            <p class="text-lg mt-2">Explore our projects and blog.</p>
+            <h1 class="text-4xl font-bold">@ViewData["HeroTitle"] ?? "Welcome to Petrine.no!"</h1>
+            <p class="text-lg mt-2">@ViewData["HeroSubtitle"] ?? "Explore our projects and blog."</p>
             <a href="#main-content" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg">Learn More</a>
         </div>
     </header>
-    <!-- Hero Section End -->
 
+    <!-- Main Content -->
     <main id="main-content" class="p-6">
         @RenderBody()
     </main>
 
-    <footer class="bg-gray-800 text-white p-4 fixed bottom-0 w-full">
-        <p>&copy; 2024 Petrine.no. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4" aria-label="Footer">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Petrine.no. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
