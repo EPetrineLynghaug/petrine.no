@@ -43,50 +43,28 @@
     </div>
 
     <!-- Project overview -->
-    <p class="text-base text-gray-700 mb-6">@Model.Project?.Summary ?? "No summary available."</p>
-
-    <!-- Section 1: Planning Process -->
-    <div class="mb-10">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Planning Process</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Planning process"
-            class="w-full h-48 object-cover rounded-lg shadow-md mb-4">
-        <p class="text-gray-600 text-sm md:text-base">This section covers the project's initial planning, goals, and
-            strategic direction.</p>
-    </div>
-
-    <!-- Section 2: Design and Prototyping -->
     <div class="mb-10">
         <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Design and Prototyping</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Design and prototyping"
-            class="w-full h-48 object-cover rounded-lg shadow-md mb-4">
-        <p class="text-gray-600 text-sm md:text-base">This part describes the design phase, including wireframing,
-            prototyping, and user experience design.</p>
+
+        <!-- Color Choice SVG with full width, height limit, and more rounded edges -->
+        <img src="~/assets/Frame 3.svg" alt="Color Choices"
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-4">
+
+        <p class="text-gray-600 text-sm md:text-base mb-4">
+            Here we focus on our color palette choices, aligning with the project's theme and goals.
+        </p>
+
+        <!-- Font Choice SVG with full width, height limit, white background fill, and rounded edges -->
+        <div
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 bg-white rounded-2xl overflow-hidden shadow-md mb-4">
+            <img src="~/assets/Frame 1.svg" alt="Font Choices" class="w-full h-full object-scale-down rounded-2xl">
+        </div>
+
+        <p class="text-gray-600 text-sm md:text-base">
+            This part describes the design phase, including wireframing, prototyping, and user experience design.
+        </p>
     </div>
 
-    <!-- Section 3: Development and Technologies -->
-    <div class="mb-10">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Development and Technologies</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Development process"
-            class="w-full h-48 object-cover rounded-lg shadow-md mb-4">
-        <p class="text-gray-600 text-sm md:text-base">Detailed breakdown of technologies used and the development
-            process for building the project.</p>
-    </div>
-
-    <!-- Section 4: Testing and Optimization -->
-    <div class="mb-10">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Testing and Optimization</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Testing and optimization"
-            class="w-full h-48 object-cover rounded-lg shadow-md mb-4">
-        <p class="text-gray-600 text-sm md:text-base">How the project was tested, including performance optimization,
-            bug fixing, and quality assurance.</p>
-    </div>
-
-    <!-- Section 5: Final Outcome and Analysis -->
-    <div class="mb-10">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Final Outcome and Analysis</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Final outcome"
-            class="w-full h-48 object-cover rounded-lg shadow-md mb-4">
-        <p class="text-gray-600 text-sm md:text-base">Summary of the project's final result, analysis of its impact, and
-            key takeaways.</p>
-    </div>
+    <!-- Additional Sections (Development, Testing, etc.) -->
+    <!-- Add other sections as required -->
 </section>
