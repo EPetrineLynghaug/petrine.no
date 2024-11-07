@@ -16,18 +16,21 @@
         RettVest - Home Kennel and Pension
     </h1>
 
+    <!-- Short description of the project -->
+    <p class="text-gray-600 text-center mb-4">
+        RettVest Home Kennel and Pension is developed as a side project, for which I am currently responsible for the
+        management of the website. The website owners sought a user-friendly platform that includes a carousel feature
+        and a form showcasing the logos of the pet food brands they represent. This project is built using Angular,
+        complemented by Tailwind CSS and Daisy UI.
+    </p>
+
     <div class="flex flex-col gap-4 items-center md:flex-row md:justify-between md:items-center mb-8">
         <!-- URL link to project's homepage -->
-        @if (!string.IsNullOrEmpty(Model.Project?.Url))
-        {
-            <a href="@Model.Project.Url" target="_blank" class="text-blue-600 hover:underline text-center md:text-left">
-                Visit Project Homepage
-            </a>
-        }
-        else
-        {
-            <p class="text-gray-600">No project URL available</p>
-        }
+        <a href="https://rettvest-kennel.com" target="_blank"
+            class="text-blue-600 hover:underline text-center md:text-left">
+            Visit Project Homepage
+        </a>
+
 
         <!-- Enlarged GitHub icon linking to repository, only if URL is available -->
         @if (!string.IsNullOrEmpty(Model.Project?.Url))
@@ -41,7 +44,6 @@
             </a>
         }
     </div>
-
     <!-- Project overview -->
     <div class="mb-10">
         <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Design and Prototyping</h2>
@@ -51,7 +53,11 @@
             class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-4">
 
         <p class="text-gray-600 text-sm md:text-base mb-4">
-            Here we focus on our color palette choices, aligning with the project's theme and goals.
+            Here we focus on our color palette choices, aligning with the project's theme and goals. The choice of
+            emerald as the primary color is deliberate; it evokes feelings of tranquility and renewal, making it an
+            ideal choice for a project centered around care and compassion, such as a home kennel and pension. Emerald
+            also represents growth and harmony, which resonates with the nurturing environment we aim to provide for the
+            pets
         </p>
 
         <!-- Font Choice SVG with full width, height limit, white background fill, and rounded edges -->
@@ -61,10 +67,29 @@
         </div>
 
         <p class="text-gray-600 text-sm md:text-base">
-            This part describes the design phase, including wireframing, prototyping, and user experience design.
+            The font choice of Roboto enhances the design with its contemporary style and versatile nature. Roboto's
+            geometric forms and open curves create a sense of approachability and friendliness, making the text engaging
+            for the audience. Furthermore, its wide range of weights allows for a clear visual hierarchy, helping to
+            emphasize important information without overwhelming the viewer. This makes Roboto not only aesthetically
+            pleasing but also functional, ensuring that the content is both accessible and appealing.
+        </p>
         </p>
     </div>
+    <!-- Sketch Image with Centered Content -->
+    <!-- Sketch Image with Centered Content -->
+    <div class="w-full max-h-80 bg-white rounded-2xl overflow-hidden shadow-md mb-4 flex items-center justify-center">
+        <img src="~/assets/img/rettvesttegning(1 opti).jpg" alt="Hand-drawn Sketch"
+            class="max-w-full max-h-full object-contain"> <!-- Changed to object-contain -->
+    </div>
 
+    <p class="text-gray-600 text-sm md:text-base mb-4">
+        For each project, I typically begin by sketching my initial ideas regarding the layout and elements I plan to
+        incorporate into my design. This is how the sketch drawing looked in its first iteration. While I often prefer
+        to develop these sketches further in Figma or create a detailed stylesheet, this particular project did not
+        follow that path.
+    </p>
+    </div>
+    </div>
     <!-- Additional Sections (Development, Testing, etc.) -->
     <!-- Add other sections as required -->
 </section>
