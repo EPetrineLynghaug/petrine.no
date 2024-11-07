@@ -9,5 +9,6 @@ namespace MyApp.Models
         public DateTime StartDate { get; set; }          // Start date of the project
         public DateTime? EndDate { get; set; }           // Nullable end date, allowing ongoing projects
         public string Status { get; set; } = "Active";   // Status, defaulting to "Active"
+        public string ImageUrl { get; set; } = string.Empty; // URL for the project's image
     }
 }

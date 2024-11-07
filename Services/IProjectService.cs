@@ -1,10 +1,11 @@
 // Services/IProjectService.cs
-using MyApp.Models;
+using petrine.no.ViewModels; // Use the correct namespace for your ViewModel
 
-namespace MyApp.Services
+namespace petrine.no.Services
 {
     public interface IProjectService
     {
-        Project? GetProjectById(int id);
+        ProjectViewModel? GetProjectById(int id); // Change to return ProjectViewModel
+        IEnumerable<ProjectViewModel> GetAllProjects(); // Add this method
     }
 }

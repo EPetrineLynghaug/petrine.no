@@ -1,3 +1,4 @@
+// ViewModels/ProjectViewModel.cs
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -27,9 +28,7 @@ namespace petrine.no.ViewModels
         // Collection of languages used in the project
         public Dictionary<string, int> Languages { get; set; } = new();
 
-        // Hero section properties for display customization
-        public string HeroTitle { get; set; } = "Welcome to Petrine.no!";
-        public string HeroSubtitle { get; set; } = "Explore our projects and blog.";
-        public string HeroImageUrl { get; set; } = "https://via.placeholder.com/1200x400";
+        // Use this for the card image
+        public string ProjectCardImageUrl { get; set; } = "/assets/img/RettVest(hero).png";  // Default card image URL
     }
 }
