@@ -34,14 +34,13 @@ namespace petrine.no.Pages
 
         private async Task FetchProjectsAsync()
         {
-            var specificRepos = new List<string> { "RettVest", "Repo2", "Repo3" }; // Replace with actual repo names
+            var specificRepos = new List<string> { "RettVest", "Repo2", "Repo3" }; // Ensure these match your actual repo names
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MyApp", "1.0"));
 
             var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
 
-            // Add the token to the Authorization header if it's available
             if (!string.IsNullOrEmpty(token))
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -49,9 +48,12 @@ namespace petrine.no.Pages
 
             foreach (var repo in specificRepos)
             {
+                var url = $"https://api.github.com/repos/EPetrineLynghaug/{repo}";
+                _logger.LogInformation("Fetching data from URL: {Url}", url);
+
                 try
                 {
-                    var response = await client.GetAsync($"https://api.github.com/repos/EPetrineLynghaug/{repo}");
+                    var response = await client.GetAsync(url);
                     if (response.IsSuccessStatusCode)
                     {
                         var responseContent = await response.Content.ReadAsStringAsync();
@@ -64,7 +66,7 @@ namespace petrine.no.Pages
                     }
                     else
                     {
-                        _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode}", response.StatusCode);
+                        _logger.LogWarning("GitHub API returned a non-success status code: {StatusCode} for repo: {Repo}", response.StatusCode, repo);
                     }
                 }
                 catch (Exception ex)

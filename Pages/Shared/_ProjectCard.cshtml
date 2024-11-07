@@ -10,8 +10,8 @@
     <!-- Content section -->
     <div class="p-4">
         <h1 class="text-lg font-semibold text-gray-800 mb-1">
-            <a href="/ProjectDetails/@Model.Name" class="hover:text-blue-600">@Model.Name</a>
+            <a href="/ProjectDetails/@Uri.EscapeDataString(Model.Name)" class="hover:text-blue-600">@Model.Name</a>
         </h1>
-        <p class="text-gray-600 text-sm">@Model.Description</p>
+        <p class="text-gray-600 text-sm">Side Project</p> <!-- Subtitle added here -->
     </div>
 </div>
