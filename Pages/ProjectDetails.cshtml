@@ -4,92 +4,180 @@
     ViewData["Title"] = Model.Project?.Name ?? "Project Details";
 }
 
-<section class="p-4 max-w-4xl mx-auto">
+<section class="p-6 max-w-4xl mx-auto"> <!-- Increased padding -->
     <!-- Large project image -->
-    <div class="mb-6">
+    <div class="mb-10"> <!-- Increased margin bottom -->
         <img src="~/assets/img/RettVest(hero).png" alt="Project image"
             class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-lg shadow-lg">
     </div>
 
     <!-- Project title and link to homepage -->
-    <h1 class="text-2xl font-bold text-gray-800 text-center mb-4 md:text-3xl md:text-left">
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-6 md:text-4xl md:text-left">
+        <!-- Increased margin bottom -->
         RettVest - Home Kennel and Pension
     </h1>
 
     <!-- Short description of the project -->
-    <p class="text-gray-600 text-center mb-4">
+    <p class="text-gray-600 mb-8 text-lg text-left"> <!-- Increased margin bottom -->
         RettVest Home Kennel and Pension is developed as a side project, for which I am currently responsible for the
         management of the website. The website owners sought a user-friendly platform that includes a carousel feature
         and a form showcasing the logos of the pet food brands they represent. This project is built using Angular,
         complemented by Tailwind CSS and Daisy UI.
     </p>
 
-    <div class="flex flex-col gap-4 items-center md:flex-row md:justify-between md:items-center mb-8">
+    <div class="flex flex-col gap-6 items-center md:flex-row md:justify-between md:items-center mb-8">
         <!-- URL link to project's homepage -->
-        <a href="https://rettvest-kennel.com" target="_blank"
-            class="text-blue-600 hover:underline text-center md:text-left">
+        <a href="https://rettvest-kennel.com" target="_blank" class="text-blue-600 hover:underline text-lg">
             Visit Project Homepage
         </a>
-
 
         <!-- Enlarged GitHub icon linking to repository, only if URL is available -->
         @if (!string.IsNullOrEmpty(Model.Project?.Url))
         {
             <a href="@Model.Project.Url" target="_blank"
                 class="flex items-center justify-center text-gray-800 hover:text-blue-600 transition-transform transform hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
                     <path
                         d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.086-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.068 1.832 2.8 1.303 3.487.998.108-.775.418-1.303.76-1.603-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.22-.124-.302-.535-1.521.117-3.176 0 0 1.008-.322 3.3 1.23a11.53 11.53 0 013.004-.404c1.018.004 2.042.137 3.004.404 2.292-1.553 3.3-1.23 3.3-1.23.653 1.655.242 2.874.118 3.176.768.838 1.236 1.91 1.236 3.22 0 4.61-2.803 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.605-.015 2.896-.015 3.286 0 .319.22.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z" />
                 </svg>
             </a>
         }
     </div>
+
     <!-- Project overview -->
-    <div class="mb-10">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 md:text-2xl">Design and Prototyping</h2>
+    <div class="mb-12"> <!-- Increased margin bottom -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Design and Prototyping</h2>
+        <!-- Increased margin bottom -->
 
-        <!-- Color Choice SVG with full width, height limit, and more rounded edges -->
+        <!-- Color Choice with rounded edges -->
         <img src="~/assets/Frame 3.svg" alt="Color Choices"
-            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-4">
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-6">
+        <!-- Increased margin bottom -->
 
-        <p class="text-gray-600 text-sm md:text-base mb-4">
+        <p class="text-gray-600 text-base md:text-lg mb-6"> <!-- Increased margin bottom -->
             Here we focus on our color palette choices, aligning with the project's theme and goals. The choice of
             emerald as the primary color is deliberate; it evokes feelings of tranquility and renewal, making it an
             ideal choice for a project centered around care and compassion, such as a home kennel and pension. Emerald
             also represents growth and harmony, which resonates with the nurturing environment we aim to provide for the
-            pets
+            pets.
         </p>
 
-        <!-- Font Choice SVG with full width, height limit, white background fill, and rounded edges -->
+        <!-- Font Choice with rounded edges -->
         <div
-            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 bg-white rounded-2xl overflow-hidden shadow-md mb-4">
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 bg-white rounded-2xl overflow-hidden shadow-md mb-6">
+            <!-- Increased margin bottom -->
             <img src="~/assets/Frame 1.svg" alt="Font Choices" class="w-full h-full object-scale-down rounded-2xl">
         </div>
 
-        <p class="text-gray-600 text-sm md:text-base">
+        <p class="text-gray-600 text-base md:text-lg mb-6"> <!-- Increased margin bottom -->
             The font choice of Roboto enhances the design with its contemporary style and versatile nature. Roboto's
             geometric forms and open curves create a sense of approachability and friendliness, making the text engaging
             for the audience. Furthermore, its wide range of weights allows for a clear visual hierarchy, helping to
             emphasize important information without overwhelming the viewer. This makes Roboto not only aesthetically
             pleasing but also functional, ensuring that the content is both accessible and appealing.
         </p>
-        </p>
-    </div>
-    <!-- Sketch Image with Centered Content -->
-    <!-- Sketch Image with Centered Content -->
-    <div class="w-full max-h-80 bg-white rounded-2xl overflow-hidden shadow-md mb-4 flex items-center justify-center">
-        <img src="~/assets/img/rettvesttegning(1 opti).jpg" alt="Hand-drawn Sketch"
-            class="max-w-full max-h-full object-contain"> <!-- Changed to object-contain -->
     </div>
 
-    <p class="text-gray-600 text-sm md:text-base mb-4">
+    <!-- Figma Image with Centered Content -->
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <!-- Increased padding -->
+        <img src="~/assets/img/figma-rv.svg" alt="Figma Design" class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6"> <!-- Increased margin bottom -->
         For each project, I typically begin by sketching my initial ideas regarding the layout and elements I plan to
-        incorporate into my design. This is how the sketch drawing looked in its first iteration. While I often prefer
-        to develop these sketches further in Figma or create a detailed stylesheet, this particular project did not
-        follow that path.
+        incorporate into my design. This is how the design drawing from Figma looks in its final form.
+    </p>
+    <!-- Development Section -->
+    <div class="">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Development</h2>
+    </div>
+
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/karusell-rv.png" alt="Carousel Image"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        The carousel was designed with user-friendly buttons that seamlessly integrated with the website's overall
+        aesthetic. On mobile devices, the carousel displays one image at a time, providing a focused viewing
+        experience, while on desktop, it showcases three images side by side, allowing users to easily compare and
+        engage with the content.
+        <br /><br />
+        The images were provided to us and were meticulously optimized to adhere to a standard of under 200KB per
+        image to ensure fast loading times and a smooth user experience. Additionally, we ensured that all images
+        were formatted consistently to align with the design principles of the site, creating a cohesive and
+        visually appealing layout. This attention to detail not only enhances the aesthetics of the project but also
+        improves functionality, ensuring that users can navigate the carousel intuitively.
+    </p>
+
+    <!-- Navigation Buttons Image -->
+
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/btn-rv.png" alt="Navigation Buttons"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+        <!-- Navigation Buttons with rounded edges -->
+    </div>
+
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        The buttons were designed as shortcuts to enhance user navigation, allowing visitors to access specific
+        features or sections of the site more efficiently. Each button is accompanied by intuitive icons that not
+        only improve usability but also serve as a visually appealing complement to the homepage.
+        <br /><br />
+        This design choice emphasizes our commitment to user experience by minimizing the number of clicks needed to
+        reach desired content, ultimately facilitating a smoother and more enjoyable browsing experience. By
+        incorporating icons, we provide users with quick visual cues that make navigation easier, especially for
+        those who prefer visual elements over text.
+        <br /><br />
+        Additionally, these buttons contribute to the overall aesthetic of the homepage, adding a dynamic and
+        interactive element that invites users to explore further. Their strategic placement enhances the layout,
+        ensuring that important functions are readily accessible without overwhelming the user interface.
     </p>
     </div>
-    </div>
-    <!-- Additional Sections (Development, Testing, etc.) -->
-    <!-- Add other sections as required -->
-</section>
+    <!-- Table Design Section -->
+    <section class="p-6 max-w-4xl mx-auto mb-8"> <!-- Added bottom margin for spacing -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Table Design</h2>
+
+        <!-- Table Image -->
+        <div
+            class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+            <img src="~/assets/img/rv-for.png" alt="Table Design"
+                class="max-w-full max-h-60 md:max-h-80 object-contain">
+        </div>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            The owners of RettVest Home Kennel and Pension wanted to create a simple yet effective way to present the
+            pet food brands available at their kennel. They envisioned a section that includes the logos of the brands,
+            along with their prices, to provide visitors with a clear and accessible overview.
+            <br /><br />
+            By displaying the brand logos, it becomes easier for customers to identify the products they prefer, while
+            the inclusion of prices helps them make informed choices. This initiative aims to support pet owners in
+            selecting high-quality food options for their furry friends.
+            <br /><br />
+            By providing this information in a straightforward manner, RettVest hopes to foster a sense of trust and
+            connection with its visitors, ensuring they have all the necessary details to care for their pets
+            effectively.
+        </p>
+
+        <!-- Summary about the project -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Project Summary</h2>
+
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            This project served as a valuable opportunity to learn and implement several modern web technologies,
+            including Angular, TypeScript, Tailwind CSS, and Sass. Each of these tools brought unique advantages to the
+            development process, allowing for the creation of a responsive and visually appealing website.
+            <br /><br />
+            Working with Angular enhanced my understanding of component-based architecture, enabling me to build
+            reusable UI components that are easy to manage and maintain. TypeScript introduced a layer of type safety,
+            making the code more robust and reducing the likelihood of runtime errors. Tailwind CSS offered a
+            utility-first approach to styling, allowing for rapid design changes without the need to write custom CSS
+            for every element. Lastly, Sass provided powerful features for writing organized and maintainable
+            stylesheets.
+            <br /><br />
+            Overall, this project not only improved my technical skills but also deepened my appreciation for how
+            different technologies can work together to create a seamless user experience. It was an enriching
+            experience that reinforced my commitment to continuous learning and professional growth in web development.
+        </p>
+
+    </section>

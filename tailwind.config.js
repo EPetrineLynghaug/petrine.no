@@ -7,7 +7,11 @@ module.exports = {
     "./Components/**/*.{html,razor}", // If you have any components
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        figtree: ["Figtree", "sans-serif"], // Add Figtree font
+      },
+    },
   },
   plugins: [],
 };
