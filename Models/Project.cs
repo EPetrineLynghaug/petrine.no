@@ -1,4 +1,3 @@
-// Models/Project.cs
 namespace MyApp.Models
 {
     public class Project

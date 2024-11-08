@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -28,20 +27,18 @@ namespace petrine.no.Pages
 
         public async Task OnGetAsync()
         {
-            // Fetch projects from GitHub
             await FetchProjectsAsync();
         }
 
         private async Task FetchProjectsAsync()
         {
-            var specificRepos = new List<string> { "RettVest", "Repo2", "Repo3" }; // Replace with actual repo names
+            var specificRepos = new List<string> { "RettVest", "Community-Science-Museum", "Repo3" };
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MyApp", "1.0"));
 
             var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
 
-            // Add the token to the Authorization header if it's available
             if (!string.IsNullOrEmpty(token))
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);

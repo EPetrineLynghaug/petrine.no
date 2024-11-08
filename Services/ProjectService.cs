@@ -1,5 +1,4 @@
-// Services/ProjectService.cs
-using petrine.no.ViewModels; // Ensure this is correct
+using petrine.no.ViewModels; // Ensure this namespace is correct
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +15,31 @@ namespace petrine.no.Services
                 {
                     Name = "RettVest",
                     Description = "This is a project about RettVest.",
-                    Url = "https://example.com/rettvest",
+                    Url = "https://github.com/EPetrineLynghaug/RettVest",
                     CreatedAt = DateTime.Now.AddMonths(-1),
-                    ProjectCardImageUrl = "/assets/img/RettVest(hero).png"
+                    ProjectCardImageUrl = "/assets/img/RettVest(hero).png" // Ensure this path is correct
                 },
-                // add more projects here
+                new ProjectViewModel
+                {
+                    Name = "Community-Science-Museum",
+                    Description = "An interactive exhibit showcasing the wonders of science and community.",
+                    Url = "https://github.com/EPetrineLynghaug/Community-Science-Museum",
+                    CreatedAt = DateTime.Now,
+                    ProjectCardImageUrl = "/assets/img/community-science-museum.png" // Ensure this path is correct
+                }
+                // Add more projects as needed
             };
+        }
+
+        public ProjectViewModel? GetProjectByName(string name)
+        {
+            return GetAllProjects().FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public ProjectViewModel? GetProjectById(int id)
         {
-            return GetAllProjects().FirstOrDefault(p => p.Name == "RettVest"); // Example logic for fetching a project by ID
+            // Placeholder implementation; adjust as needed for actual ID fetching logic
+            return GetAllProjects().FirstOrDefault(p => p.Name.GetHashCode() == id);
         }
     }
 }
