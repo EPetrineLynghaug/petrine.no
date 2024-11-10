@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace petrine.no.ViewModels
@@ -7,18 +6,30 @@ namespace petrine.no.ViewModels
     public class ProjectViewModel
     {
         [JsonPropertyName("name")]
-        public required string Name { get; set; }  // Required field, non-nullable
+        public string Name { get; set; } = string.Empty;
 
         [JsonPropertyName("description")]
-        public string? Description { get; set; } = string.Empty;  // Nullable, with default value
-
-        [JsonPropertyName("html_url")]
-        public string? Url { get; set; } = string.Empty;  // Nullable, with default value
+        public string? Description { get; set; } = string.Empty;
 
         [JsonPropertyName("created_at")]
-        public required DateTime CreatedAt { get; set; }  // Required, non-nullable
+        public DateTime CreatedAt { get; set; }
 
-        public string ProjectCardImageUrl { get; set; } = "/assets/img/RettVest(hero).png";  // Default card image URL
-        public string ProjectCardImageAlt { get; set; } = "/assets/img/card-cm.png";  // Default card image alt
+        // Legg til Url-egenskapen for å bruke med href-lenken
+        public string Url { get; set; } = string.Empty;
+
+        public string ProjectCardImageUrl
+        {
+            get
+            {
+                return Name switch
+                {
+                    "RettVest" => "/assets/img/RettVest(hero).png",
+                    "Community-Science-Museum" => "/assets/img/community-science-museum.png",
+                    _ => "/assets/img/default.png"
+                };
+            }
+        }
+
+        public string ProjectCardImageAlt => $"{Name} Project Image";
     }
 }

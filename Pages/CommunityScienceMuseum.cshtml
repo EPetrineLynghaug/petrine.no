@@ -1,0 +1,55 @@
+@page
+@model petrine.no.Pages.CommunityScienceMuseumModel
+@{
+    ViewData["Title"] = "Community Science Museum";
+}
+
+<section class="p-6 max-w-4xl mx-auto">
+    <!-- Stor prosjektbilde -->
+    <div class="mb-10">
+        <img src="@Model.Project?.ProjectCardImageUrl" alt="Community Science Museum image"
+            class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-lg shadow-lg">
+    </div>
+
+    <!-- Prosjekttittel og link til GitHub-prosjekt -->
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-6 md:text-4xl md:text-left">
+        @Model.Project?.Name ?? "Community Science Museum"
+    </h1>
+
+    <!-- Kort beskrivelse av prosjektet -->
+    <p class="text-gray-600 mb-8 text-lg text-left">
+        @Model.Project?.Description ?? "Description not available."
+    </p>
+
+    <div class="flex flex-col gap-6 items-center md:flex-row md:justify-between md:items-center mb-8">
+        @if (!string.IsNullOrEmpty(Model.Project?.Url))
+        {
+            <a href="@Model.Project.Url" target="_blank" class="text-blue-600 hover:underline text-lg">
+                View Project on GitHub
+            </a>
+        }
+    </div>
+
+    <!-- Ekstra innhold om prosjektet -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Project Overview</h2>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            The Community Science Museum project focuses on interactive exhibits that engage visitors in the wonders of
+            science and community-driven learning. The design emphasizes accessibility, interactive displays, and
+            educational resources
+            tailored for all age groups.
+        </p>
+        <!-- Bilde eller annet innhold spesifikt for prosjektet -->
+        <img src="~/assets/img/community-science-museum-details.png" alt="Project Details Image"
+            class="w-full max-h-80 object-contain rounded-lg shadow-md mb-6">
+    </div>
+
+    <!-- Teknisk informasjon om prosjektet -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Technologies Used</h2>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        This project was developed using Angular, TypeScript, and Tailwind CSS, providing a responsive, interactive
+        experience for museum visitors.
+        With a focus on UI design and user experience, this application integrates dynamic content to adapt to various
+        visitor needs and learning styles.
+    </p>
+</section>

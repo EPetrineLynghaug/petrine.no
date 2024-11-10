@@ -1,15 +1,25 @@
 ﻿@page
 @model petrine.no.Pages.IndexModel
-@{
-    ViewData["Title"] = "Home";
-}
 
 <section id="latestProjects" class="p-6">
     <h2 class="text-2xl font-semibold mb-4">Latest Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @foreach (var project in Model.LatestProjects)
         {
-            @await Html.PartialAsync("_ProjectCard", project)
+            <div
+                class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 max-w-sm w-full mx-auto">
+                <div class="rounded-lg overflow-hidden bg-white p-1 shadow-sm">
+                    <img src="@Url.Content(project.ProjectCardImageUrl)" alt="@project.ProjectCardImageAlt"
+                        class="w-full h-48 object-cover rounded-lg" />
+                </div>
+
+                <div class="p-4">
+                    <h1 class="text-lg font-semibold text-gray-800 mb-1">
+                        <a href="@project.Url" class="hover:text-blue-600">@project.Name</a>
+                    </h1>
+                    <p class="text-gray-600 text-sm">@project.Description</p>
+                </div>
+            </div>
         }
     </div>
 </section>

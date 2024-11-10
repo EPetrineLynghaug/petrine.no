@@ -5,24 +5,32 @@
 }
 
 <section class="p-6 max-w-4xl mx-auto">
+    <!-- Stor prosjektbilde -->
     <div class="mb-10">
-        <img src="@Model.Project?.ProjectCardImageUrl ?? " ~/assets/img/default.png"" alt="Project image"
+        <img src="~/assets/img/RettVest(hero).png" alt="Project image"
             class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-lg shadow-lg">
     </div>
 
+    <!-- Prosjekttittel og link til hjemmeside -->
     <h1 class="text-3xl font-bold text-gray-800 text-center mb-6 md:text-4xl md:text-left">
-        @Model.Project?.Name ?? "Project Title Not Available"
+        RettVest - Home Kennel and Pension
     </h1>
 
+    <!-- Kort beskrivelse av prosjektet -->
     <p class="text-gray-600 mb-8 text-lg text-left">
-        @Model.Project?.Description ?? "Description not available."
+        RettVest Home Kennel and Pension is developed as a side project, for which I am currently responsible for the
+        management of the website. The website owners sought a user-friendly platform that includes a carousel feature
+        and a form showcasing the logos of the pet food brands they represent. This project is built using Angular,
+        complemented by Tailwind CSS and Daisy UI.
     </p>
 
     <div class="flex flex-col gap-6 items-center md:flex-row md:justify-between md:items-center mb-8">
+        <!-- URL link til prosjektets hjemmeside -->
         <a href="https://rettvest-kennel.com" target="_blank" class="text-blue-600 hover:underline text-lg">
             Visit Project Homepage
         </a>
 
+        <!-- GitHub ikon som lenker til repository, kun hvis URL er tilgjengelig -->
         @if (!string.IsNullOrEmpty(Model.Project?.Url))
         {
             <a href="@Model.Project.Url" target="_blank"
@@ -34,4 +42,115 @@
             </a>
         }
     </div>
-</section>
+
+    <!-- Prosjektoversikt -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Design and Prototyping</h2>
+
+        <!-- Valg av farger -->
+        <img src="~/assets/Frame 3.svg" alt="Color Choices"
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-6">
+
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            Here we focus on our color palette choices, aligning with the project's theme and goals. The choice of
+            emerald as the primary color is deliberate; it evokes feelings of tranquility and renewal, making it an
+            ideal choice for a project centered around care and compassion, such as a home kennel and pension. Emerald
+            also represents growth and harmony, which resonates with the nurturing environment we aim to provide for the
+            pets.
+        </p>
+
+        <!-- Valg av font -->
+        <div
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 bg-white rounded-2xl overflow-hidden shadow-md mb-6">
+            <img src="~/assets/Frame 1.svg" alt="Font Choices" class="w-full h-full object-scale-down rounded-2xl">
+        </div>
+
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            The font choice of Roboto enhances the design with its contemporary style and versatile nature. Roboto's
+            geometric forms and open curves create a sense of approachability and friendliness, making the text engaging
+            for the audience. Furthermore, its wide range of weights allows for a clear visual hierarchy, helping to
+            emphasize important information without overwhelming the viewer.
+        </p>
+    </div>
+
+    <!-- Design fra Figma -->
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/figma-rv.svg" alt="Figma Design" class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        For each project, I typically begin by sketching my initial ideas regarding the layout and elements I plan to
+        incorporate into my design. This is how the design drawing from Figma looks in its first form.
+    </p>
+
+    <!-- Utviklingsseksjon -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Development</h2>
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/karusell-rv.png" alt="Carousel Image"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        The carousel was designed with user-friendly buttons that seamlessly integrated with the website's overall
+        aesthetic. On mobile devices, the carousel displays one image at a time, providing a focused viewing
+        experience, while on desktop, it showcases three images side by side, allowing users to easily compare and
+        engage with the content.
+    </p>
+
+    <!-- Design av navigasjonsknapper -->
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/btn-rv.png" alt="Navigation Buttons"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        The buttons were designed as shortcuts to enhance user navigation, allowing visitors to access specific
+        features or sections of the site more efficiently. Each button is accompanied by intuitive icons that not
+        only improve usability but also serve as a visually appealing complement to the homepage.
+    </p>
+
+    <!-- Tabell design -->
+    <section class="p-6 max-w-4xl mx-auto mb-8"> <!-- Added bottom margin for spacing -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Table Design</h2>
+
+        <!-- Table Image -->
+        <div
+            class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+            <img src="~/assets/img/rv-for.png" alt="Table Design"
+                class="max-w-full max-h-60 md:max-h-80 object-contain">
+        </div>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            The owners of RettVest Home Kennel and Pension wanted to create a simple yet effective way to present the
+            pet food brands available at their kennel. They envisioned a section that includes the logos of the brands,
+            along with their prices, to provide visitors with a clear and accessible overview.
+            <br /><br />
+            By displaying the brand logos, it becomes easier for customers to identify the products they prefer, while
+            the inclusion of prices helps them make informed choices. This initiative aims to support pet owners in
+            selecting high-quality food options for their furry friends.
+            <br /><br />
+            By providing this information in a straightforward manner, RettVest hopes to foster a sense of trust and
+            connection with its visitors, ensuring they have all the necessary details to care for their pets
+            effectively.
+        </p>
+
+        <!-- Summary about the project -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Project Summary</h2>
+
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            This project served as a valuable opportunity to learn and implement several modern web technologies,
+            including Angular, TypeScript, Tailwind CSS, and Sass. Each of these tools brought unique advantages to the
+            development process, allowing for the creation of a responsive and visually appealing website.
+            <br /><br />
+            Working with Angular enhanced my understanding of component-based architecture, enabling me to build
+            reusable UI components that are easy to manage and maintain. TypeScript introduced a layer of type safety,
+            making the code more robust and reducing the likelihood of runtime errors. Tailwind CSS offered a
+            utility-first approach to styling, allowing for rapid design changes without the need to write custom CSS
+            for every element. Lastly, Sass provided powerful features for writing organized and maintainable
+            stylesheets.
+            <br /><br />
+            Overall, this project not only improved my technical skills but also deepened my appreciation for how
+            different technologies can work together to create a seamless user experience. It was an enriching
+            experience that reinforced my commitment to continuous learning and professional growth in web development.
+        </p>
+
+    </section>

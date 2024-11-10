@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using petrine.no.Services; // Ensure this namespace is included
+using petrine.no.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<IProjectService, ProjectService>(); // Correct registration of the IProjectService
+builder.Services.AddScoped<IProjectService, ProjectService>(); // Registrer ProjectService
 
 var app = builder.Build();
 
