@@ -15,14 +15,14 @@ namespace petrine.no.Services
                 new ProjectViewModel
                 {
                     Name = "RettVest",
-                    Description = "This is a project about RettVest.",
+                    Description = "Site project.",
                     CreatedAt = DateTime.Now.AddMonths(-1),
                     Url = "/RettVest"
                 },
                 new ProjectViewModel
                 {
                     Name = "Community-Science-Museum",
-                    Description = "An interactive exhibit showcasing the wonders of science and community.",
+                    Description = "School project.",
                     CreatedAt = DateTime.Now,
                     Url = "/CommunityScienceMuseum"
                 }
