@@ -7,49 +7,157 @@
 <section class="p-6 max-w-4xl mx-auto">
     <!-- Stor prosjektbilde -->
     <div class="mb-10">
-        <img src="@Model.Project?.ProjectCardImageUrl" alt="Community Science Museum image"
+        <img src="~/assets/img/museum.png" alt="Project image"
             class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-lg shadow-lg">
     </div>
 
-    <!-- Prosjekttittel og link til GitHub-prosjekt -->
+    <!-- Prosjekttittel og link til hjemmeside -->
     <h1 class="text-3xl font-bold text-gray-800 text-center mb-6 md:text-4xl md:text-left">
-        @Model.Project?.Name ?? "Community Science Museum"
+        Community Science Museum
     </h1>
 
     <!-- Kort beskrivelse av prosjektet -->
     <p class="text-gray-600 mb-8 text-lg text-left">
-        @Model.Project?.Description ?? "Description not available."
+        In this HTML and CSS assignment, we were limited to using only these two languages—no frameworks or additional
+        languages were permitted. The task included specific user cases with a target audience, theme, and a set of
+        images that we needed to integrate into the design. The target audience was children aged 6 to 16, so I focused
+        on creating an engaging and lively layout to appeal to them.<br></br>
+
+        To bring some energy to the design, I used SVGs and a wavy footer to add dynamic visual elements, along with
+        icons suited to a younger audience. The project was awarded an A based on design, code quality, and alignment
+        with the target group.
     </p>
 
     <div class="flex flex-col gap-6 items-center md:flex-row md:justify-between md:items-center mb-8">
+        <!-- URL link til prosjektets hjemmeside -->
+        <a href="https://museum-science.netlify.app" target="_blank" class="text-blue-600 hover:underline text-lg">
+            Visit Project Homepage
+        </a>
+
+        <!-- GitHub ikon som lenker til repository, kun hvis URL er tilgjengelig -->
         @if (!string.IsNullOrEmpty(Model.Project?.Url))
         {
-            <a href="@Model.Project.Url" target="_blank" class="text-blue-600 hover:underline text-lg">
-                View Project on GitHub
+            <a href="@Model.Project.Url" target="_blank"
+                class="flex items-center justify-center text-gray-800 hover:text-blue-600 transition-transform transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                    <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.086-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.068 1.832 2.8 1.303 3.487.998.108-.775.418-1.303.76-1.603-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.47-2.382 1.236-3.22-.124-.302-.535-1.521.117-3.176 0 0 1.008-.322 3.3 1.23a11.53 11.53 0 013.004-.404c1.018.004 2.042.137 3.004.404 2.292-1.553 3.3-1.23 3.3-1.23.653 1.655.242 2.874.118 3.176.768.838 1.236 1.91 1.236 3.22 0 4.61-2.803 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.605-.015 2.896-.015 3.286 0 .319.22.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z" />
+                </svg>
             </a>
         }
     </div>
 
-    <!-- Ekstra innhold om prosjektet -->
+    <!-- Prosjektoversikt -->
     <div class="mb-12">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Project Overview</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Design and Prototyping</h2>
+
+        <!-- Valg av farger -->
+        <img src="~/assets/img/cm-color.svg" alt="Color Choices"
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 object-contain rounded-2xl overflow-hidden shadow-md mb-6">
+
         <p class="text-gray-600 text-base md:text-lg mb-6">
-            The Community Science Museum project focuses on interactive exhibits that engage visitors in the wonders of
-            science and community-driven learning. The design emphasizes accessibility, interactive displays, and
-            educational resources
-            tailored for all age groups.
+            For the color palette, I focused on green tones as the foundation. I started by selecting a specific shade
+            of green that I felt would work well with the theme, giving a fresh and friendly look that aligns with the
+            youthful target audience. From this main shade, I built a palette by adding three complementary green tones.
+            These colors were used consistently throughout the design to create a cohesive and visually appealing
+            experience.
         </p>
-        <!-- Bilde eller annet innhold spesifikt for prosjektet -->
-        <img src="~/assets/img/community-science-museum-details.png" alt="Project Details Image"
-            class="w-full max-h-80 object-contain rounded-lg shadow-md mb-6">
+
+        <!-- Valg av font -->
+        <div
+            class="w-full max-h-52 sm:max-h-64 md:max-h-80 lg:max-h-96 bg-white rounded-2xl overflow-hidden shadow-md mb-6">
+            <img src="~/assets/img/cm-font.svg" alt="Font Choices" class="w-full h-full object-scale-down rounded-2xl">
+        </div>
+
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            The chosen font for the project was Lora, which adds a playful yet readable quality to the design. Lora’s
+            subtle curves and balanced style give the text a friendly feel, appealing to a younger audience while
+            remaining clear and easy to read. The combination of color and typography was aimed at creating an inviting
+            and engaging design that would resonate with the intended audience.
+        </p>
     </div>
 
-    <!-- Teknisk informasjon om prosjektet -->
-    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Technologies Used</h2>
+    <!-- Design fra Figma -->
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/cm-tk.png" alt="Figma Design" class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
     <p class="text-gray-600 text-base md:text-lg mb-6">
-        This project was developed using Angular, TypeScript, and Tailwind CSS, providing a responsive, interactive
-        experience for museum visitors.
-        With a focus on UI design and user experience, this application integrates dynamic content to adapt to various
-        visitor needs and learning styles.
+        I began the project by creating a mind map to establish a clear overview of the task. This initial step allowed
+        me to brainstorm ideas freely, organizing my thoughts around key elements like layout, color scheme, typography,
+        and user interaction. The mind map helped me break down the project requirements and visualize how different
+        components could come together to meet the needs of the target audience.<br></br>
+
+        Mapping out ideas in this way was especially useful in identifying the main focus areas early on and ensuring
+        all design choices would align with the theme and age group. By having this structured overview, I was able to
+        approach the design with a well-defined plan, which made it easier to transition into sketching initial layouts
+        on paper. This preparatory stage set a solid foundation, guiding the development process and making sure that
+        each part of the project served a clear purpose.
     </p>
+
+    <!-- Utviklingsseksjon -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Development</h2>
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/card-cm.png" alt="Carousel Image" class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        To make the design more engaging, I created alternating cards with ample spacing on the sides and between each
+        card. The cards alternated between green and white backgrounds, which added a visual rhythm to the layout and
+        made each card more interesting to read. This alternating color scheme, combined with well-placed images, helped
+        create a visually appealing experience that guided the viewer's attention naturally from one card to the next.
+        The result was a dynamic, reader-friendly design that felt both organized and lively.<br></br>
+        On the technical side, optimizing the images was a key focus. I used a combination of GIMP and a terminal tool
+        called ImageMagick, which provided an efficient workflow for processing multiple images. This approach allowed
+        me to avoid limitations commonly found in online optimization tools, which often restrict the number of images
+        you can optimize at once. Additionally, I set up a fallback to JPEG format for the images, as older browsers do
+        not always support the WebP format. By implementing this fallback, I ensured compatibility across a wider range
+        of browsers.<br></br>
+
+        Through careful optimization, I reduced the file sizes significantly by cutting down on unnecessary data and
+        lowering the KB size of each image. This process improved the overall site performance, raising my performance
+        score from 93% to 95%, which contributed to a faster, more efficient user experience.
+    </p>
+
+    <!-- Design av navigasjonsknapper -->
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/card-svg-cm.png" alt="Navigation Buttons"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        To add more energy and a playful touch to the design, I actively used SVG images, which I customized with my
+        chosen color palette. This allowed me to maintain a cohesive style while bringing more liveliness to the layout,
+        which made the design more engaging and suitable for the young target audience. By implementing SVGs with
+        consistent colors, I was able to create visual harmony across the design, enhancing its appeal without
+        overwhelming the content. The flexibility of SVGs also allowed for smooth scaling across different screen sizes,
+        contributing to a visually dynamic yet accessible experience.
+    </p>
+
+    <div
+        class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/footer-cm.png" alt="Navigation Buttons"
+            class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        The footer was designed with a wave pattern, adding a lively, flowing element to the page. This wave effect
+        brings a sense of movement and excitement, aligning well with the playful tone of the overall design. By
+        incorporating this wave-generated footer, I aimed to create a visually interesting endpoint that feels connected
+        to the rest of the page, adding an extra touch of character that appeals to the young target audience. The
+        footer design also reinforces the sense of cohesion and liveliness present throughout the site.
+    </p>
+
+
+    <!-- Summary about the project -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Project Summary</h2>
+
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        In summary, it was enjoyable to work on a project that focused solely on HTML and CSS, as it allowed me to see
+        how far I could go with just these foundational technologies. By working within these constraints, I was able to
+        explore creative solutions to make the design engaging and functional without relying on additional frameworks
+        or scripts. This exercise highlighted the potential of HTML and CSS to create visually dynamic, interactive, and
+        user-friendly designs. It was a valuable experience that strengthened my understanding of front-end fundamentals
+        and reinforced how powerful these tools can be on their own.
+    </p>
+
 </section>

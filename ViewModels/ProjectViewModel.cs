@@ -24,7 +24,7 @@ namespace petrine.no.ViewModels
                 return Name switch
                 {
                     "RettVest" => "/assets/img/RettVest(hero).png",
-                    "Community-Science-Museum" => "/assets/img/community-science-museum.png",
+                    "Community-Science-Museum" => "/assets/img/museum.png",
                     _ => "/assets/img/default.png"
                 };
             }
