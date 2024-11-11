@@ -28,3 +28,12 @@ menuButton.addEventListener("click", () => {
     mobileMenu.classList.add("hidden");
   }
 });
+document.querySelectorAll(".skill-bar").forEach((bar) => {
+  const originalHeight = bar.style.height;
+  bar.addEventListener("mouseenter", () => {
+    bar.style.height = `calc(${originalHeight} + 10px)`; /* Grow slightly */
+  });
+  bar.addEventListener("mouseleave", () => {
+    bar.style.height = originalHeight; /* Return to original height */
+  });
+});

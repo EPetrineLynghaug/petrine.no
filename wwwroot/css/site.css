@@ -2,5 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* wwwroot/css/site.css */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex-grow: 1; /* Makes the main content grow to fill available space */
+  }
 
+/* Outer Bar Styling */
+.outer-bar {
+    width: 50px;
+    height: 200px;
+    background-color: #e5e7eb;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+   
+}
 
+/* Inner Bar Styling */
+.inner-bar {
+    width: 100%; 
+    transition: transform 0.3s ease;
+}
+
+.inner-bar:hover {
+    transform: scaleY(1.05);
+}
+
+.skill-name {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #2d3748;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Align labels as milestones */
+.flex-col.justify-around span:nth-child(1) {
+    position: relative;
+    top: 45px; /* Aligns "Code Ninja" higher up */
+}
+
+.flex-col.justify-around span:nth-child(2) {
+    position: relative;
+    top: 30px; /* Aligns "Knows some stuff" */
+}
+
+.flex-col.justify-around span:nth-child(3) {
+    position: relative;
+    top: 0; /* Keeps "Can Google it" near middle */
+}

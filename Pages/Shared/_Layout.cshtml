@@ -6,26 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Petrine.no</title>
 
-    <!-- Tailwind CSS -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <!-- Inkluderer header fra partial view -->
+    <!-- Include Header from Partial View -->
     @await Html.PartialAsync("_Header")
 
     <!-- Display Hero Section only on Home Page -->
-    @if ((ViewContext.RouteData.Values["Page"] as string)?.Equals("/Index", StringComparison.OrdinalIgnoreCase) == true)
+    @if ((ViewContext.RouteData.Values["Page"] as string)?.Equals("Index", StringComparison.OrdinalIgnoreCase) == true
+    || (ViewContext.RouteData.Values["Page"] as string)?.Equals("/", StringComparison.OrdinalIgnoreCase) == true)
     {
         <header class="relative bg-cover bg-center h-96"
             style="background-image: url('@(ViewData["HeroImageUrl"]?.ToString() ?? "https://via.placeholder.com/1920x600")');">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-                <h1 class="text-4xl font-bold">@ViewData["HeroTitle"]?.ToString() ?? "Welcome to Petrine.no!"</h1>
-                <p class="text-lg mt-2">@ViewData["HeroSubtitle"]?.ToString() ?? "Explore our projects and blog."</p>
-                <a href="#main-content" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg">Learn More</a>
+                <!-- Hero content, e.g., a headline or call to action -->
             </div>
         </header>
     }
@@ -35,8 +34,11 @@
         @RenderBody()
     </main>
 
-    <!-- Footer -->
+    <!-- Include Footer from Partial View -->
     @await Html.PartialAsync("_Footer")
 
+    <!-- Custom JavaScript -->
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
+
+</html>

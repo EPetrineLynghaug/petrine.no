@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./Pages/**/*.{html,razor}", // Include all Razor pages
-    "./Views/**/*.{html,razor}", // If you have MVC Views
-    "./wwwroot/**/*.{html,razor,js,jsx,ts,tsx}", // Static files in wwwroot
-    "./Components/**/*.{html,razor}", // If you have any components
+    "./Pages/**/*.cshtml", // All Razor pages
+    "./Views/**/*.cshtml", // MVC Views, if applicable
+    "./wwwroot/**/*.{html,js}", // Static files in wwwroot (HTML and JavaScript)
+    "./Components/**/*.cshtml", // Razor components, if any
   ],
   theme: {
     extend: {
       fontFamily: {
-        figtree: ["Figtree", "sans-serif"], // Add Figtree font
+        figtree: ["Figtree", "sans-serif"], // Add Figtree font family
       },
     },
   },
