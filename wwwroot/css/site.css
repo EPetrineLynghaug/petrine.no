@@ -6,6 +6,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: 'Figtree', sans-serif;
   }
   
   body {
@@ -50,8 +51,9 @@ html, body {
 /* Align labels as milestones */
 .flex-col.justify-around span:nth-child(1) {
     position: relative;
-    top: 45px; /* Aligns "Code Ninja" higher up */
+    top: 50px; /* Aligns "Code Ninja" higher up */
 }
+
 
 .flex-col.justify-around span:nth-child(2) {
     position: relative;

@@ -1,6 +1,47 @@
-@page
-<h1 class="text-3xl font-semibold p-6">Alle Prosjekter</h1>
-<div id="projectsList" class="p-6">
-    <!-- Her hentes prosjektene fra GitHub -->
-</div>
-<script src="~/js/projects.js"></script>
+@page "{id:int}"
+@model petrine.no.Pages.BlogModel
+
+<section class="p-6 max-w-4xl mx-auto">
+    <!-- Stor bilde til blogginnlegget -->
+    <div class="mb-10">
+        <img src="@Model.BlogPost.ImageUrl" alt="Blog image"
+             class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-lg shadow-lg">
+    </div>
+
+    <!-- Bloggtittel -->
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-6 md:text-4xl md:text-left">
+        @Model.BlogPost.Title
+    </h1>
+
+    <!-- Kort beskrivelse av blogginnlegget -->
+    <p class="text-gray-600 mb-8 text-lg text-left">
+        @Model.BlogPost.Summary
+    </p>
+
+    <!-- Dato og forfatter -->
+    <div class="text-gray-600 text-base md:text-lg mb-8">
+        <p>Forfatter: @Model.BlogPost.Author</p>
+        <p>Publisert: @Model.BlogPost.PublishedDate.ToString("MMMM dd, yyyy")</p>
+    </div>
+
+    <!-- Innholdet i blogginnlegget -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Innhold</h2>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            @Model.BlogPost.Content
+        </p>
+    </div>
+
+    <!-- Bilde eller seksjon relatert til bloggen, om ønskelig -->
+    <div class="w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-md mb-6 flex items-center justify-center py-6">
+        <img src="~/assets/img/sample-related-image.png" alt="Related Image"
+             class="max-w-full max-h-60 md:max-h-80 object-contain">
+    </div>
+
+    <!-- Opsummering av blogginnlegget -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 md:text-3xl">Sammendrag</h2>
+    <p class="text-gray-600 text-base md:text-lg mb-6">
+        En kort oppsummering eller avsluttende kommentarer rundt blogginnlegget, for å gi leserne en konklusjon
+        eller inspirasjon basert på temaet.
+    </p>
+</section>

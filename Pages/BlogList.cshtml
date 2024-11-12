@@ -1,0 +1,12 @@
+@page
+@model petrine.no.Pages.BlogListModel
+
+<section class="p-6 mt-10">
+    <h2 class="text-2xl font-semibold mb-4">All Blog Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @foreach (var post in Model.BlogPosts)
+        {
+            @await Html.PartialAsync("Shared/_BlogPostCard", post)
+        }
+    </div>
+</section>

@@ -1,0 +1,31 @@
+@model petrine.no.ViewModels.BlogPostViewModel
+
+<div class="max-w-md mx-auto overflow-hidden">
+    <!-- Image Section -->
+    <div class="mb-10">
+        <img src="@Model.ImageUrl" alt="Blog image"
+            class="w-full h-64 sm:h-96 md:h-[500px] object-cover rounded-3xl shadow-lg">
+    </div>
+
+    <!-- Content Section -->
+    <div class="p-0" style="font-family: 'Figtree', sans-serif;">
+        <!-- Klikkbar Blog Title -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">
+            <a asp-page="/BlogPost" asp-route-id="@Model.Id" class="hover:text-blue-600">@Model.Title</a>
+        </h1>
+
+        <!-- Summary Text -->
+        <p class="text-gray-700 text-lg mb-6">
+            @Model.Summary
+        </p>
+
+        <!-- Author and Date -->
+        <div class="flex items-center mt-4 text-gray-600">
+            <img src="https://via.placeholder.com/80" alt="Author" class="w-16 h-16 rounded-full mr-4 shadow-md">
+            <div class="text-left">
+                <p class="text-sm font-semibold">@Model.Author</p>
+                <span class="text-xs">@Model.PublishedDate.ToString("MMMM dd, yyyy")</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,3 +23,22 @@
         }
     </div>
 </section>
+
+<section id="latestBlogs" class="p-6 mt-10">
+    <h2 class="text-2xl font-semibold mb-4">Latest Blog Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @foreach (var post in Model.LatestBlogPosts)
+        {
+            <div class="max-w-md mx-auto overflow-hidden">
+                <div class="mb-10">
+                    <img src="@post.ImageUrl" alt="Blog image" class="w-full h-48 object-cover rounded-3xl shadow-lg">
+                </div>
+                <div class="p-0" style="font-family: 'Figtree', sans-serif;">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-4">@post.Title</h1>
+                    <p class="text-gray-700 text-lg mb-6">@post.Summary</p>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>

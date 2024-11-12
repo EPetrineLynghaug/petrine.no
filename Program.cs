@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IProjectService, ProjectService>(); // Registrer ProjectService
+builder.Services.AddScoped<IBlogService, BlogService>();      // Registrer BlogService
+
+
 
 var app = builder.Build();
 
